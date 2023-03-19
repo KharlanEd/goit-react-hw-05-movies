@@ -1,11 +1,14 @@
+// import { getGenres } from "components/utils/GetGeners";
+import { MovieInfo } from "components/MovieInfo";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchMovieDetails } from "./Servise/API";
+import { fetchMovieDetails } from "../components/Servise/API";
+import css from '../components/styles.module.css'
 
 
 export function MovieDetalis (){
 
-const [moviedetails, setMoviedetails] = useState([]);
+const [movie, setMovie] = useState([]);
     
     const params = useParams()
   const id = params?.movieId;
@@ -14,7 +17,7 @@ const [moviedetails, setMoviedetails] = useState([]);
         async function getDetalis(){
             try{
                 const results = await fetchMovieDetails(id)
-                setMoviedetails(results)
+                setMovie(results)
                 console.log(results);
             }catch(error) {
                 console.log(error)
@@ -25,10 +28,8 @@ getDetalis()
 },[id])
 
 return(
-    <div>
-        <div>
-            <img src={`https://image.tmdb.org/t/p/w200${moviedetails.poster_path}`} alt={moviedetails.title} />
-        </div>
+    <div className={css.container} >
+        <MovieInfo movieInfo={movie } />
     </div>
 )
 

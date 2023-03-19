@@ -2,7 +2,7 @@ import Home from "pages/Home";
 import Movies from "pages/Movies";
 import { NavLink, Route, Routes } from "react-router-dom";
 import css from '../components/styles.module.css'
-import { MovieDetalis } from "./MovieDetalis";
+import { MovieDetalis } from "../pages/MovieDetalis";
 
 export const App = () => {
   return (

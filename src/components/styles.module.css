@@ -18,3 +18,11 @@ li{
     display: flex;
     gap: 15px ;
 }
+
+/*Movie Detalis*/
+
+.container{
+    margin-left: 10px;
+    display: flex;
+    gap: 20px;
+}
