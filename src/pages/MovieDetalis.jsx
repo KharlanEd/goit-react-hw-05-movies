@@ -1,4 +1,5 @@
 // import { getGenres } from "components/utils/GetGeners";
+import { Loader } from "components/Loder";
 import { MovieInfo } from "components/MovieInfo";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -9,18 +10,23 @@ import css from '../components/styles.module.css'
 export function MovieDetalis (){
 
 const [movie, setMovie] = useState([]);
+const [isloding,setIsloding]= useState(false)
     
-    const params = useParams()
-  const id = params?.movieId;
+const params = useParams()
+const id = params?.movieId;
 
     useEffect(()=>{
+       
         async function getDetalis(){
             try{
+                setIsloding(true)
                 const results = await fetchMovieDetails(id)
                 setMovie(results)
-                console.log(results);
+                
             }catch(error) {
                 console.log(error)
+        } finally{
+            setIsloding(false)
         }
     
 }
@@ -30,6 +36,7 @@ getDetalis()
 return(
     <div className={css.container} >
         <MovieInfo movieInfo={movie } />
+        <Loader isloding={isloding}/>
     </div>
 )
 
