@@ -25,4 +25,10 @@ li{
     margin-left: 10px;
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
+}
+
+.container_text{
+    display: flex;
+    gap: 20px;  
 }

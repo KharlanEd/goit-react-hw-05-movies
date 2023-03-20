@@ -2,11 +2,11 @@ import { LstistTrends } from "./ListTrends";
 
 
 
-export function TrendGalery ({trends}) {
-    console.log(trends);
+export function TrendGalery ({movies}) {
+   
     return (
         <ul>
-          {trends.map(trend=>(
+          {movies.map(trend=>(
             <LstistTrends
             key={trend.id}
             trend={trend}
