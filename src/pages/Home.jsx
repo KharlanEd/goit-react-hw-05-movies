@@ -1,6 +1,7 @@
 import { Loader } from "components/Loder";
 import { fetchTrendingMovies} from "components/Servise/API";
 import { useEffect, useState } from "react";
+
 import{TrendGalery} from '../components/TrendGalery'
 
 function  Home() {

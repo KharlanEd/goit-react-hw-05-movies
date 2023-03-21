@@ -1,11 +1,13 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
 
 export const LstistTrends =({trend}) =>{
-
+const location = useLocation()
     return(
         <div>
-        <Link key={trend.id}
+        <Link
+        state= {{from:location}}
+        key={trend.id}
         to={`/movies/${trend.id}`}
         >
             

@@ -7,7 +7,7 @@ import { fetchMovieDetails } from "../components/Servise/API";
 import css from '../components/styles.module.css'
 
 
-export function MovieDetalis (){
+function MovieDetalis (){
 
 const [movie, setMovie] = useState([]);
 const [isloding,setIsloding]= useState(false)
@@ -41,3 +41,5 @@ return(
 )
 
 }
+
+export default MovieDetalis;

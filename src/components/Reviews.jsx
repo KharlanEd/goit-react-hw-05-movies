@@ -4,7 +4,7 @@ import { Loader } from "./Loder"
 import { fetchMovieReviews } from "./Servise/API"
 
 
-export const Reviews = ()=>{
+const Reviews = ()=>{
     const[cast,setCast]=useState([])
     const [isloding,setIsloding]= useState(false)
     const params = useParams()
@@ -68,3 +68,5 @@ export const Reviews = ()=>{
        
     )
 }
+
+export default Reviews;

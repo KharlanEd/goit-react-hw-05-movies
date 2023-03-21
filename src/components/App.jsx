@@ -1,11 +1,23 @@
-import Home from "pages/Home";
-import Movies from "pages/Movies";
-import { NavLink, Route, Routes } from "react-router-dom";
-import css from '../components/styles.module.css'
-import { MovieDetalis } from "../pages/MovieDetalis";
-import Cast from "./Cast";
 
-import { Reviews } from "./Reviews";
+
+import { Navigate, Route, Routes } from "react-router-dom";
+
+
+
+
+import { lazy } from "react";
+import { Layout } from "./Layout";
+
+
+
+
+const Home = lazy(() => import('../pages/Home'));
+const Movies = lazy(() => import('../pages/Movies'));
+const MovieDetalis = lazy(() => import('../pages/MovieDetalis'));
+const Cast = lazy(() => import('./Cast'));
+const Reviews = lazy(() => import('./Reviews'));
+
+
 
 export const App = () => {
   return (
@@ -19,25 +31,18 @@ export const App = () => {
       //   color: '#010101'
       // }}
     >
-      <header >
-        <ul className={css.header_list}>
-          <li> 
-            <NavLink className={css.header_link} to='/'>Home</NavLink>
-          </li>
-          <li>
-             <NavLink className={css.header_link} to='/movies'>Movies</NavLink>
-          </li>
-       
-
-        </ul>
-      </header>
+      
       <Routes>
-        <Route path="/"element={<Home/>}/>
+        <Route path="/" element={<Layout/>}>
+        <Route index element={<Home/>}/>
         <Route path="/movies" element={<Movies/>}/>
         <Route path="/movies/:movieId" element={<MovieDetalis/>}>
           <Route path="cast" element={<Cast/>}/>
           <Route path="reviews" element={<Reviews/>}/>
         </Route>
+
+        </Route>
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
   );
